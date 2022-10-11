@@ -1,11 +1,3 @@
-#create a symlink to .vimrc in ~/
-cd ~
-ln -s .vim/.vimrc .vimrc
-
-#map .vimrc to nvim config, they are compatible
-ln -s .config/nvim/pack .vim/pack
-ln -s .config/nvim/init.vim .vimrc
-
 # Load all of the submodules
 cd ~/.config/nvim
 git submodule update --recursive --remote
