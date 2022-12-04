@@ -27,6 +27,9 @@ vim.g.ycm_cache_monifunc = 0
 require('shawn.treesitter');
 require('vim-be-good');
 
+--language servers
+--require'lspconfig'.rome.setup{}
+
 --ToggleTerm
 ------------------------------------------------------------
 require('toggleterm').setup{
@@ -97,6 +100,14 @@ inoremap("<C-j>", "<Esc>:m .+1<CR>==gi")
 inoremap("<C-k>", "<Esc>:m .-2<CR>==gi")
 vnoremap("<C-j>", ":m '>+1<CR>gv=gv")
 vnoremap("<C-k>", ":m '<-2<CR>gv=gv")
+
+-- jumps re-center
+nnoremap("<C-d>", "<C-d>zz")
+nnoremap("<C-u>", "<C-u>zz")
+
+-- search re-center
+nnoremap("n", "nzz")
+nnoremap("N", "Nzz")
 
 -- go to file under cursor
 vnoremap("gf", "<C-W>gf")

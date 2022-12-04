@@ -8,6 +8,9 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function()
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
+	use 'neovim/nvim-lspconfig' 
+	use {'neoclide/coc.nvim', branch = 'release'}
+	use 'hrsh7th/nvim-cmp'
 	use 'marko-cerovac/material.nvim'
 	use {
 		'nvim-treesitter/nvim-treesitter',
