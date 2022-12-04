@@ -18,6 +18,7 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.laststatus = 3
 vim.opt.winbar = "%f"
+vim.opt.relativenumber = true
 vim.g.loaded_matchparen = 1
 vim.g.ycm_cache_monifunc = 0
 -- command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument

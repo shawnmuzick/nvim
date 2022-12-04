@@ -1,7 +1,3 @@
-# Load all of the submodules
-cd ~/.config/nvim
-git submodule update --recursive --remote
-
 # Check for/Install latest nodejs
 if [ ! -x "$(command -v node)" ]; then
      sudo dnf install nodejs
