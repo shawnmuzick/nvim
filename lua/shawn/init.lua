@@ -6,10 +6,11 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.opt.encoding="utf-8"
 vim.opt.hidden = true
+vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.number = true
-vim.opt.hlsearch = false
 vim.opt.background = 'dark'
+vim.opt.termguicolors = true
 vim.opt.errorbells= false
 vim.opt.swapfile = false
 vim.opt.scrolloff=10
@@ -21,6 +22,7 @@ vim.opt.winbar = "%f"
 vim.opt.relativenumber = true
 vim.g.loaded_matchparen = 1
 vim.g.ycm_cache_monifunc = 0
+vim.g.coc_start_at_startup = false
 -- command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
 --Treesitter
@@ -133,5 +135,5 @@ nmap("<leader>tr", ":NvimTreeToggle<CR>")
 --Telescope
 nnoremap("<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>")
 nnoremap("<leader>fg","<cmd>lua require('telescope.builtin').live_grep()<cr>")
-nnoremap("<leader>fb","<cmd>lua require('telescope.builtin').buffers()<cr>")  
-nnoremap("<leader>fh","<cmd>lua require('telescope.builtin').help_tags()<cr>")  
+nnoremap("<leader>fb","<cmd>lua require('telescope.builtin').buffers()<cr>")
+nnoremap("<leader>fh","<cmd>lua require('telescope.builtin').help_tags()<cr>")
