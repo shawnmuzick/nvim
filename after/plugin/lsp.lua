@@ -37,7 +37,10 @@ lsp.set_preferences({
 })
 
 vim.diagnostic.config({
-    virtual_text = true,
+    --virtual_text = true,
+	Lua={
+diagnostics = {globals={'vim'}}
+	}
 })
 
 lsp.on_attach(function(client, bufnr)

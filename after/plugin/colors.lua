@@ -11,7 +11,7 @@ require('material').setup(
 			non_current_windows = false, -- Enable darker background for non-current windows
 		},
 		-- Give comments style such as bold, italic, underline etc.
-		styles = { 
+		styles = {
 			comments = {  italic = true }
 		},
 	}
@@ -20,7 +20,7 @@ require('material').setup(
 function colorize(color)
 	color = color or "material"
 	vim.cmd.colorscheme(color)
-	vim.api.nvim_set_hl(0, "Normal", {bg= "none"})
-	vim.api.nvim_set_hl(0, "NormalFloat", {bg= "none"})
+	--vim.api.nvim_set_hl(0, "Normal", {bg= "none"})
+	--vim.api.nvim_set_hl(0, "NormalFloat", {bg= "none"})
 end
 colorize();
