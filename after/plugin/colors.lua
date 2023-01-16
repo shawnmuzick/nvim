@@ -8,12 +8,26 @@ require('material').setup(
 			sidebars = true, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
 			floating_windows = false, -- Enable contrast for floating windows
 			cursor_line = false, -- Enable darker background for the cursor line
-			non_current_windows = false, -- Enable darker background for non-current windows
+			non_current_windows = true, -- Enable darker background for non-current windows
 		},
 		-- Give comments style such as bold, italic, underline etc.
 		styles = {
-			comments = {  italic = true }
+			--comments = {  [[italic = true]] }
 		},
+		plugins={
+			"nvim-tree",
+			"nvim-web-devicons",
+			"telescope"
+		},
+		disable={
+	--		background = true,
+		},
+		lualine_style = "stealth",
+		custom_highlights = {
+			MyHighlightGroup = {
+				--bg = '#212121'
+			}
+		}
 	}
 )
 
