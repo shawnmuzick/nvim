@@ -18,7 +18,7 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.laststatus = 3
-vim.opt.winbar = "%f"
+--vim.opt.winbar = "%f"
 vim.opt.relativenumber = true
 vim.g.loaded_matchparen = 1
 vim.g.ycm_cache_monifunc = 0
@@ -36,6 +36,9 @@ require('vim-be-good');
 
 --language servers
 --require'lspconfig'.rome.setup{}
+
+--Bufferline
+require("bufferline").setup{}
 
 --ToggleTerm
 ------------------------------------------------------------
