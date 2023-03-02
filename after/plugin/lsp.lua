@@ -6,6 +6,11 @@ lsp.ensure_installed({
   'tsserver',
   'eslint',
   'rust_analyzer',
+  'rome',
+  'typescript-language-server',
+  'lua-language-server',
+  'csharp-language-server',
+  'clangd',
 })
 
 local cmp = require('cmp')
