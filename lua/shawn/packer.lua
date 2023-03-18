@@ -59,9 +59,10 @@ return require('packer').startup(function(use)
 	use 'marko-cerovac/material.nvim'
 	use{
 		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+		requires = { 'kyazdani42/nvim-web-devicons' }
 	}
-	use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+	use {'akinsho/bufferline.nvim', tag = "v3.*"}
+	use 'nvim-tree/nvim-web-devicons'
 	use 'ThePrimeagen/vim-be-good'
 	-- UI
 	use {

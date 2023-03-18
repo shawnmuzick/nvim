@@ -77,6 +77,7 @@ require('telescope').setup()
 --Nvim Tree
 ------------------------------------------------------------
 require("nvim-tree").setup()
+--require("nvim-web-devicons").setup()
 
 
 -- REMAPS
