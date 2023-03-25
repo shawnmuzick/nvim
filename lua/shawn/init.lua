@@ -25,10 +25,21 @@ vim.g.ycm_cache_monifunc = 0
 vim.g.coc_start_at_startup = false
 local opts = { noremap=true, silent=true }
 vim.diagnostic.config({virtual_text = false});
-vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>',opts)
-vim.api.nvim_set_keymap('t', '<space>w','<C-\\><C-n><C-w>',opts);
--- command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+--popup error under cursor
+--vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>',opts)
+--error list
+vim.api.nvim_set_keymap('n', '<space>le', '<cmd>lua vim.diagnostic.setqflist()<CR><C-w>L',opts)
+--warnings
+--vim.api.nvim_set_keymap('t', '<space>w','<C-\\><C-n><C-w>',opts);
 
+--works but keeps kicking me out of my window
+-- command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+  --  vim.api.nvim_create_autocmd('DiagnosticChanged', {
+    --  callback = function(args)
+      -- local diagnostics = args.data.diagnostics
+       -- vim.diagnostic.setqflist(diagnostics)
+      --end,
+    --})
 --Treesitter
 ------------------------------------------------------------
 require('shawn.treesitter');
