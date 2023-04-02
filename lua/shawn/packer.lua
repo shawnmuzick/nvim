@@ -65,6 +65,7 @@ return require('packer').startup(function(use)
 	use 'nvim-tree/nvim-web-devicons'
 	use 'ThePrimeagen/vim-be-good'
 	-- UI
+	use 'https://github.com/sidebar-nvim/sidebar.nvim'
 	use {
 		'kyazdani42/nvim-tree.lua',
 		requires = {
