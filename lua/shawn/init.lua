@@ -225,6 +225,9 @@ nnoremap ("<leader>bp", ":bp<CR>")
 -- Nvim Tree
 nmap("<leader>tr", ":NvimTreeToggle<CR>")
 
+--Fugitive
+nmap("<leader>G", ":Git<CR>")
+
 --Telescope
 nnoremap("<leader>fgh","<cmd>lua require('telescope.builtin').git_commits()<cr>")
 nnoremap("<leader>flm","<cmd>lua require('telescope.builtin').marks()<cr>")
