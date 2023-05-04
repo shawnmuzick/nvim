@@ -21,6 +21,9 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
+	use 'nvim-treesitter/playground'
+	use 'HiPhish/nvim-ts-rainbow2'
+	--use '/navarasu/onedark.nvim'
 	--lsp autocomplete stuff
 	use {
 		'VonHeikemen/lsp-zero.nvim',
@@ -73,9 +76,6 @@ return require('packer').startup(function(use)
 		},
 		tag = 'nightly' -- optional, updated every week. (see issue #1193)
 	}
-	use {"akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
-		require("toggleterm").setup()
-	end}
 	if packer_bootstrap then
 		require('packer').sync()
 	end

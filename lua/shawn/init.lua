@@ -25,8 +25,6 @@ vim.g.ycm_cache_monifunc = 0
 vim.g.coc_start_at_startup = false
 local opts = { noremap=true, silent=true }
 vim.diagnostic.config({virtual_text = false});
---popup error under cursor
---vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>',opts)
 --error list
 vim.api.nvim_set_keymap('n', '<space>le', '<cmd>lua vim.diagnostic.setqflist()<CR><C-w>L',opts)
 --git history
@@ -51,32 +49,6 @@ require('vim-be-good');
 --
 --Bufferline
 require("bufferline").setup{}
-
---ToggleTerm
-------------------------------------------------------------
-require('toggleterm').setup{
-	size = function(term)
-		if term.direction == "horizontal" then
-			return 10
-		elseif term.direction == "vertical" then
-			return vim.o.columns * 0.4
-		end
-	end,
-	open_mapping = [[<leader>tm]],
-	insert_mappings = false,
-	terminal_mappings = true,
-	-- on_open = fun(t: Terminal), -- function to run when the terminal opens
-	-- on_close = fun(t: Terminal), -- function to run when the terminal closes
-	hide_numbers = true,
-	shade_filetypes = {},
-	shade_terminals = true,
-	shading_factor = '1',
-	start_in_insert = true,
-	persist_size = true,
-	direction = 'horizontal',
-	close_on_exit = true,
-	shell = vim.o.shell,
-}
 
 --Lualine
 ------------------------------------------------------------
@@ -231,10 +203,10 @@ nmap("<leader>G", ":Git<CR>")
 --Telescope
 nnoremap("<leader>fgh","<cmd>lua require('telescope.builtin').git_commits()<cr>")
 nnoremap("<leader>flm","<cmd>lua require('telescope.builtin').marks()<cr>")
---requires ripgrep
---nnoremap("<leader>flg","<cmd>lua require('telescope.builtin').live_grep()<cr>")
 nnoremap("<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>")
 nnoremap("<leader>fb","<cmd>lua require('telescope.builtin').buffers()<cr>")
 nnoremap("<leader>fh","<cmd>lua require('telescope.builtin').help_tags()<cr>")
 nnoremap("<leader>fd","<cmd>lua require('telescope.builtin').lsp_definitions()<cr>")
 nnoremap("<leader>fe","<cmd>lua require('telescope.builtin').diagnostics()<cr>")
+--requires ripgrep
+--nnoremap("<leader>flg","<cmd>lua require('telescope.builtin').live_grep()<cr>")

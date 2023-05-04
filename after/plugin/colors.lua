@@ -1,40 +1,67 @@
-vim.opt.termguicolors = true
-vim.g.airline_theme='onedark'
-vim.g.material_style = "darker"
 vim.opt.background = 'dark'
-require('material').setup(
-	{
-		contrast = {
-			sidebars = true, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
-			floating_windows = false, -- Enable contrast for floating windows
-			cursor_line = false, -- Enable darker background for the cursor line
-			non_current_windows = true, -- Enable darker background for non-current windows
-		},
-		-- Give comments style such as bold, italic, underline etc.
-		styles = {
-			--comments = {  [[italic = true]] }
-		},
-		plugins={
-			"nvim-tree",
-			"nvim-web-devicons",
-			"telescope"
-		},
-		disable={
-	--		background = true,
-		},
-		lualine_style = "stealth",
-		custom_highlights = {
-			MyHighlightGroup = {
-				--bg = '#212121'
-			}
-		}
-	}
-)
+ORANGE = "#eebe71"
+BLUE = "#8addfb"
+GREEN = "#21ffb0"
+LIME = "#c3ea95"
+WHITE = "#ffeeee"
+GREY = "#191919"
 
-function colorize(color)
-	color = color or "material"
-	vim.cmd.colorscheme(color)
-	--vim.api.nvim_set_hl(0, "Normal", {bg= "none"})
-	--vim.api.nvim_set_hl(0, "NormalFloat", {bg= "none"})
+local colors = require 'material.colors'
+    -- Theme style
+    vim.g.material_style = 'darker'
+
+    -- Colorscheme settings
+    require('material').setup({
+        contrast = {
+            sidebars = true,
+            floating_windows = false,
+            cursor_line = true,
+            popup_menu = false,
+		non_current_windows = true, -- Enable darker background for non-current windows
+            filetypes = {
+                "qf",
+                "packer",
+                "dapui_breakpoints",
+            }
+        },
+        plugins = {
+           "dap",
+           "gitsigns",
+           "indent-blankline",
+           "neogit",
+           "nvim-cmp",
+           "nvim-tree",
+           "nvim-web-devicons",
+           "telescope",
+           "which-key",
+        },
+        styles = {
+            comments = { italic = true },
+            functions = { italic = true },
+        },
+        disable = {
+            borders = true,
+            background = false,
+            term_colors = false,
+            eob_lines = false
+        },
+        lualine_style = 'stealth',
+custom_colors = function(colors)
+	colors.main.yellow = BLUE
+	colors.main.red = BLUE
+	colors.main.purple = BLUE
+	colors.main.darkpurple = BLUE
+	colors.main.pink = BLUE
+	colors.syntax.type = ORANGE
+	colors.syntax.comments = GREEN
+	colors.syntax.string = LIME
+	colors.syntax.variable = ORANGE
+	colors.syntax.field = ORANGE
+	colors.syntax.value = ORANGE
+	colors.syntax.keyword = BLUE
+	colors.editor.bg = GREY
 end
-colorize();
+    })
+
+    -- Apply the colorscheme
+    vim.cmd 'colorscheme material'

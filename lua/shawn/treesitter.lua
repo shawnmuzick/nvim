@@ -13,4 +13,10 @@ require'nvim-treesitter.configs'.setup {
     -- `false` will disable the whole extension
     enable = true,
   },
+	rainbow = {
+		enable = true,
+		query = 'rainbow-parens',
+		strategy = require('ts-rainbow').strategy.global
+	}
 }
+
