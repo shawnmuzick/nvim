@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 	use 'nvim-treesitter/playground'
 	use 'HiPhish/nvim-ts-rainbow2'
+	use 'folke/trouble.nvim'
 	--use '/navarasu/onedark.nvim'
 	--lsp autocomplete stuff
 	use {
