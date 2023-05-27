@@ -1,4 +1,4 @@
-vim.opt.background = 'dark'
+--vim.opt.background = 'dark'
 ORANGE = "#eebe71"
 BLUE = "#8addfb"
 GREEN = "#21ffb0"
@@ -41,7 +41,7 @@ local colors = require 'material.colors'
         },
         disable = {
             borders = true,
-            background = false,
+            background = true,
             term_colors = false,
             eob_lines = false
         },

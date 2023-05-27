@@ -210,3 +210,6 @@ nnoremap("<leader>fd","<cmd>lua require('telescope.builtin').lsp_definitions()<c
 nnoremap("<leader>fe","<cmd>lua require('telescope.builtin').diagnostics()<cr>")
 --requires ripgrep
 --nnoremap("<leader>flg","<cmd>lua require('telescope.builtin').live_grep()<cr>")
+
+--Telescope
+nnoremap("<leader>tt",":TroubleToggle<CR>")
