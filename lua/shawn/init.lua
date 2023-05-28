@@ -2,6 +2,7 @@ require('shawn.packer')
 -- SETTINGS
 ------------------------------------------------------------
 vim.opt.guicursor = ""
+vim.opt.fillchars = {eob =" "}
 vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.opt.encoding="utf-8"

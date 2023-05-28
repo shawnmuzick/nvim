@@ -59,7 +59,7 @@ custom_colors = function(colors)
 	colors.syntax.field = ORANGE
 	colors.syntax.value = ORANGE
 	colors.syntax.keyword = BLUE
-	colors.editor.bg = GREY
+	--colors.editor.bg = GREY
 end
     })
 
