@@ -214,3 +214,6 @@ nnoremap("<leader>fe","<cmd>lua require('telescope.builtin').diagnostics()<cr>")
 
 --Telescope
 nnoremap("<leader>tt",":TroubleToggle<CR>")
+
+--remap exit
+nnoremap("<leader>Q",":qa!<CR>")
