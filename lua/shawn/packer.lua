@@ -1,7 +1,5 @@
 --PLUGINS
---
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
---
 local ensure_packer = function()
 	local fn = vim.fn
 	local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -19,12 +17,9 @@ local packer_bootstrap = ensure_packer()
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
-	use 'nvim-treesitter/playground'
-	use 'HiPhish/nvim-ts-rainbow2'
+	use 'hiphish/rainbow-delimiters.nvim'
 	use 'folke/trouble.nvim'
-	--use '/navarasu/onedark.nvim'
 	--lsp autocomplete stuff
 	use {
 		'VonHeikemen/lsp-zero.nvim',
@@ -54,29 +49,22 @@ return require('packer').startup(function(use)
 	-- fuzzy find
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.0',
-		-- or                            , branch = '0.1.x',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 	-- Git
 	use 'tpope/vim-fugitive'
 	-- Theme
 	use 'marko-cerovac/material.nvim'
-	use{
-		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons' }
-	}
-	use {'akinsho/bufferline.nvim', tag = "v3.*"}
-	use 'nvim-tree/nvim-web-devicons'
-	use 'ThePrimeagen/vim-be-good'
 	-- UI
-	use 'https://github.com/sidebar-nvim/sidebar.nvim'
-	use {
-		'kyazdani42/nvim-tree.lua',
-		requires = {
-			'kyazdani42/nvim-web-devicons', -- optional, for file icons
-		},
-		tag = 'nightly' -- optional, updated every week. (see issue #1193)
-	}
+	use 'kyazdani42/nvim-web-devicons'
+	use 'nvim-lualine/lualine.nvim'
+	use {'akinsho/bufferline.nvim', tag = "v3.*"}
+	use 'kyazdani42/nvim-tree.lua'
+	--use 'nvim-treesitter/playground'
+	--use 'rcarriga/nvim-notify'
+	--use '/navarasu/onedark.nvim'
+	--use 'ThePrimeagen/vim-be-good'
+	--use 'https://github.com/sidebar-nvim/sidebar.nvim'
 	if packer_bootstrap then
 		require('packer').sync()
 	end
