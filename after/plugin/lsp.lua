@@ -5,7 +5,7 @@ lsp.ensure_installed({
 	'tsserver',
 	'eslint',
 	'rust_analyzer',
-	'rome',
+	'biome',
 	'lua_ls',
 	'clangd',
 	'csharp_ls',
