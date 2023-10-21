@@ -1,1 +1,1 @@
-require('shawn')
+require('plugins')
