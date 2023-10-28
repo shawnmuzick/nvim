@@ -1,6 +1,6 @@
 local lsp = require("lsp-zero")
 lsp.set_preferences({
-	suggest_lsp_servers = false,
+	--suggest_lsp_servers = false,
 	sign_icons = {
 		error = 'E',
 		warn = 'W',
@@ -64,6 +64,7 @@ require('mason-lspconfig').setup({
 		'lua_ls',
 		'clangd',
 		'csharp_ls',
+		'marksman',
 	},
 	handlers = {
 		lsp.default_setup,
