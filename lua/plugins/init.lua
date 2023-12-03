@@ -9,14 +9,18 @@ require("plugins.NvimTree")
 require('plugins.Telescope')
 require('plugins.Trouble')
 require("bufferline").setup()
-require('lualine').setup()
+
+--fake custom theme to set transparent statusline background
+local theme = require("lualine.themes.tokyonight")
+theme.normal.c.bg = nil
 -- Lua
 require('lualine').setup {
 	options = {
 		-- ... your lualine config
-		theme = 'tokyonight'
+		theme = theme
 		-- ... your lualine config
-	}
+	},
+	extensions = {'quickfix', 'mason','lazy','fugitive'}
 }
 require("tokyonight").setup({
 	transparent = true,
@@ -25,5 +29,3 @@ require("tokyonight").setup({
 		comments = {italic = true},
 	}
 })
-
-
