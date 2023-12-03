@@ -20,31 +20,39 @@ plugins ={
 	'neovim/nvim-lspconfig',
 	'williamboman/mason.nvim',
 	'williamboman/mason-lspconfig.nvim',
-	'folke/trouble.nvim',
 	'hrsh7th/nvim-cmp',
 	'hrsh7th/cmp-buffer',
 	'hrsh7th/cmp-path',
 	'hrsh7th/cmp-nvim-lsp',
 	'hrsh7th/cmp-nvim-lua',
-	'saadparwaiz1/cmp_luasnip',
-	'L3MON4D3/LuaSnip',
+--	'saadparwaiz1/cmp_luasnip',
+--	'L3MON4D3/LuaSnip',
 	'rafamadriz/friendly-snippets',
 	{
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate'
 	},
 
+	--error window
+	'folke/trouble.nvim',
+
 	-- fuzzy find
 	"nvim-lua/plenary.nvim",
 	'nvim-telescope/telescope.nvim',
 
 	-- UI and Theme
+	 {
+  "folke/tokyonight.nvim",
+  lazy = false,
+  priority = 1000,
+  opts = {},
+},
 	'marko-cerovac/material.nvim',
 	'kyazdani42/nvim-web-devicons',
-	'nvim-lualine/lualine.nvim',
-	'akinsho/bufferline.nvim',
+	'nvim-lualine/lualine.nvim',--status line
+	'akinsho/bufferline.nvim', --vscode like tabs
 	'kyazdani42/nvim-tree.lua',
-	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, --indent guides
 	'hiphish/rainbow-delimiters.nvim',
 }
 require("lazy").setup(plugins, opts)

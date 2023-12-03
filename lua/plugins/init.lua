@@ -10,5 +10,20 @@ require('plugins.Telescope')
 require('plugins.Trouble')
 require("bufferline").setup()
 require('lualine').setup()
+-- Lua
+require('lualine').setup {
+	options = {
+		-- ... your lualine config
+		theme = 'tokyonight'
+		-- ... your lualine config
+	}
+}
+require("tokyonight").setup({
+	transparent = true,
+	styles={
+		keywords = {italic = true},
+		comments = {italic = true},
+	}
+})
 
 
