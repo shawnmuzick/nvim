@@ -1,5 +1,4 @@
 vim.keymap.set("n","<leader>tr", ":NvimTreeToggle<CR>", {noremap = true})
---Nvim Tree
 return require("nvim-tree").setup({
 	diagnostics = {
 		enable = true,

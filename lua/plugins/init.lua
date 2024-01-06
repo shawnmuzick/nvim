@@ -8,6 +8,7 @@ require('plugins.treesitter')
 require("plugins.NvimTree")
 require('plugins.Telescope')
 require('plugins.Trouble')
+require('plugins.gitsigns')
 require("bufferline").setup()
 
 --fake custom theme to set transparent statusline background
