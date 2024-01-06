@@ -39,7 +39,7 @@ vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 
 -- go to file under cursor
-vim.keymap.set("v","gf", "<C-W>gf")
+vim.keymap.set("n","gf", "<C-W>gf")
 
 -- capital Y now just goes from cursor to end of line, like capital D and C
 vim.keymap.set("n","Y","y$")

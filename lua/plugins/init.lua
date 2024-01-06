@@ -18,7 +18,6 @@ require('lualine').setup {
 	options = {
 		-- ... your lualine config
 		theme = theme
-		-- ... your lualine config
 	},
 	extensions = {'quickfix', 'mason','lazy','fugitive'}
 }

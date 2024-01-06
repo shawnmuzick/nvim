@@ -6,11 +6,12 @@ LIME = "#c3ea95"
 WHITE = "#ffeeee"
 GREY = "#191919"
 
-local colors = require 'material.colors'
 -- Theme style
-vim.g.material_style = 'darker'
+--local colors = require 'material.colors'
+--vim.g.material_style = 'darker'
 
 -- Colorscheme settings
+--[[
 require('material').setup({
 	contrast = {
 		sidebars = true,
@@ -62,6 +63,7 @@ require('material').setup({
 		--colors.editor.bg = GREY
 	end
 })
+]]--
 
 -- Apply the colorscheme
 --vim.cmd 'colorscheme material'

@@ -10,7 +10,8 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 vim.opt.rtp:prepend(lazypath)
-plugins ={
+
+local plugins ={
 	--Git
 	'lewis6991/gitsigns.nvim',
 	'tpope/vim-fugitive',
@@ -25,29 +26,25 @@ plugins ={
 	'hrsh7th/cmp-path',
 	'hrsh7th/cmp-nvim-lsp',
 	'hrsh7th/cmp-nvim-lua',
---	'saadparwaiz1/cmp_luasnip',
---	'L3MON4D3/LuaSnip',
 	'rafamadriz/friendly-snippets',
 	{
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate'
 	},
 
-	--error window
-	'folke/trouble.nvim',
-
 	-- fuzzy find
 	"nvim-lua/plenary.nvim",
 	'nvim-telescope/telescope.nvim',
 
 	-- UI and Theme
-	 {
-  "folke/tokyonight.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {},
-},
-	'marko-cerovac/material.nvim',
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
+	'folke/trouble.nvim', 	--error window
+	--	'marko-cerovac/material.nvim',
 	'kyazdani42/nvim-web-devicons',
 	'nvim-lualine/lualine.nvim',--status line
 	'akinsho/bufferline.nvim', --vscode like tabs
@@ -55,4 +52,4 @@ plugins ={
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, --indent guides
 	'hiphish/rainbow-delimiters.nvim',
 }
-require("lazy").setup(plugins, opts)
+require("lazy").setup(plugins)

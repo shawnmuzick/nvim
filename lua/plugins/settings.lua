@@ -20,4 +20,4 @@ vim.g.loaded_matchparen = 1
 vim.g.ycm_cache_monifunc = 0
 vim.g.coc_start_at_startup = false
 vim.g.mapleader = ' '
-local opts = { noremap=true, silent=true }
+--local opts = { noremap=true, silent=true }
