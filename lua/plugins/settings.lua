@@ -20,4 +20,7 @@ vim.g.loaded_matchparen = 1
 vim.g.ycm_cache_monifunc = 0
 vim.g.coc_start_at_startup = false
 vim.g.mapleader = ' '
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
 --local opts = { noremap=true, silent=true }
