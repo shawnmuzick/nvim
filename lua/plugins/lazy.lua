@@ -28,7 +28,11 @@ local plugins ={
 	'hrsh7th/cmp-cmdline',
 	'hrsh7th/nvim-cmp',
 	'rafamadriz/friendly-snippets',
-	'L3MON4D3/LuaSnip',
+	{
+
+		'L3MON4D3/LuaSnip',
+		build = "make install_jsregexp"
+	},
 	'saadparwaiz1/cmp_luasnip',
 
 	{
@@ -41,14 +45,19 @@ local plugins ={
 	'nvim-telescope/telescope.nvim',
 
 	-- UI and Theme
+	'rcarriga/nvim-notify',
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
 		opts = {},
 	},
+	{--lsp notifications
+		"j-hui/fidget.nvim",
+		opts = {
+		},
+	},
 	'folke/trouble.nvim', 	--error window
-	--	'marko-cerovac/material.nvim',
 	'kyazdani42/nvim-web-devicons',
 	'nvim-lualine/lualine.nvim',--status line
 	'akinsho/bufferline.nvim', --vscode like tabs

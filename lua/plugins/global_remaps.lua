@@ -52,3 +52,6 @@ vim.keymap.set("n","<leader>G", ":Git<CR>")
 
 --remap exit
 vim.keymap.set("n","<leader>Q",":qa!<CR>")
+
+--remap format
+vim.keymap.set("n","<leader>F","gg=G")

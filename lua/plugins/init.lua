@@ -4,12 +4,15 @@ require('plugins.global_remaps')
 
 --Plugins
 require('plugins.lazy')
+vim.notify = require("notify")
 require('plugins.treesitter')
 require("plugins.NvimTree")
 require('plugins.Telescope')
 require('plugins.Trouble')
 require('plugins.gitsigns')
-require("bufferline").setup()
+require("bufferline").setup({})
+require("fidget").setup({})
+
 
 --fake custom theme to set transparent statusline background
 local theme = require("lualine.themes.tokyonight")

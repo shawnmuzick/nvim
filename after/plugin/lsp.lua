@@ -9,7 +9,6 @@ lsp.set_preferences({
 })
 
 vim.diagnostic.config({
-	Lua={diagnostics = {globals={'vim'}}},
 	virtual_text = false
 })
 
@@ -27,15 +26,46 @@ require('mason-lspconfig').setup({
 	},
 	handlers = {
 		lsp.default_setup,
+		["lua_ls"] = function ()
+			local lspconfig = require("lspconfig")
+			lspconfig.lua_ls.setup({
+				settings = {
+					Lua = {
+						--define vim as a global
+						diagnostics = {globals = {"vim"}}
+					}
+				}
+			})
+		end
 	},
-	handlers = nil
 })
 
+local group = vim.api.nvim_create_augroup('UserLspConfig',{})
+--[[
+vim.api.nvim_create_autocmd('User',{
+	group = group,
+	pattern = {'LspProgressUpdate'},
+	callback = function()
+		for _, client in ipairs() do
+			local name = client.name or ""
+			local msg = client.message or ""
+			local prog = client.percentage or 0
+			local title = lsp.title or ""
+
+			vim.notify(string.format(" %%<%s: %s %s (%s%%%%) ", name, title, msg, prog))
+		end
+		vim.notify(vim.lsp.util.get_progress_messages())
+	end
+})
+]]--
+
 vim.api.nvim_create_autocmd('LspAttach', {
-	group = vim.api.nvim_create_augroup('UserLspConfig',{}),
+	group = group,
 	callback = function(ev)
-		-- Enable completion triggered by <c-x><c-o>
-		--vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+		local names = ""
+		for _, client in ipairs(vim.lsp.get_active_clients()) do
+			names = names .. client.name
+		end
 
 		local opts = {buffer = ev.buf}
 		vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -46,6 +76,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set("n", "<leader>e", function() vim.diagnostic.open_float() end, opts)
 		vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
 		vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+		vim.notify("Finished setting up lsps: " ..  names)
 	end
 })
 

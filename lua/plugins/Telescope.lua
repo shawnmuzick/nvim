@@ -5,5 +5,6 @@ vim.keymap.set("n","<leader>fb","<cmd>lua require('telescope.builtin').buffers()
 vim.keymap.set("n","<leader>fh","<cmd>lua require('telescope.builtin').help_tags()<cr>")
 vim.keymap.set("n","<leader>fd","<cmd>lua require('telescope.builtin').lsp_definitions()<cr>")
 vim.keymap.set("n","<leader>fe","<cmd>lua require('telescope.builtin').diagnostics()<cr>")
+vim.keymap.set("n","<leader>fn","<cmd>lua require('telescope').extensions.notify.notify()<cr>")
 
 return require('telescope').setup()
