@@ -13,6 +13,6 @@ return {
 		})
 	end,
 	build = function()
-		rquire("nvim-tresitter.install").update({with_sync = true})()
+		require("nvim-tresitter.install").update({with_sync = true})()
 	end
 }
