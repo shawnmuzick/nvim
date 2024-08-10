@@ -13,6 +13,6 @@ return {
 		})
 	end,
 	build = function()
-		require("nvim-tresitter.install").update({with_sync = true})()
+		require("nvim-treesitter.install").update({with_sync = true})()
 	end
 }

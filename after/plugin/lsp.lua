@@ -8,6 +8,25 @@ lsp.set_preferences({
 	}
 })
 
+lsp.on_attach(function(client,bufnr)
+	lsp.default_keymaps({buffer = bufnr})
+
+	local names = ""
+	for _, cl in ipairs(vim.lsp.get_active_clients()) do
+		names = names .. cl.name
+	end
+	local opts = {buffer = bufnr}
+	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+	vim.keymap.set("n", "<leader>K", function() vim.lsp.buf.hover() end, opts)
+	vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+	vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+	--vim.keymap.set("n", "", function() vim.lsp.buf.signature_help() end, opts)
+	vim.keymap.set("n", "<leader>e", function() vim.diagnostic.open_float() end, opts)
+	vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
+	vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+	vim.notify("Finished setting up lsps: " ..  names)
+end)
+
 vim.diagnostic.config({
 	virtual_text = false
 })
@@ -23,6 +42,7 @@ require('mason-lspconfig').setup({
 		'clangd',
 		'csharp_ls',
 		'marksman',
+		'html'
 	},
 	handlers = {
 		lsp.default_setup,
@@ -36,48 +56,11 @@ require('mason-lspconfig').setup({
 					}
 				}
 			})
+			lspconfig.csharp_ls.setup({
+				filetypes = {'cs','cshtml'},
+			})
 		end
 	},
-})
-
-local group = vim.api.nvim_create_augroup('UserLspConfig',{})
---[[
-vim.api.nvim_create_autocmd('User',{
-	group = group,
-	pattern = {'LspProgressUpdate'},
-	callback = function()
-		for _, client in ipairs() do
-			local name = client.name or ""
-			local msg = client.message or ""
-			local prog = client.percentage or 0
-			local title = lsp.title or ""
-
-			vim.notify(string.format(" %%<%s: %s %s (%s%%%%) ", name, title, msg, prog))
-		end
-		vim.notify(vim.lsp.util.get_progress_messages())
-	end
-})
-]]--
-
-vim.api.nvim_create_autocmd('LspAttach', {
-	group = group,
-	callback = function(ev)
-		local names = ""
-		for _, client in ipairs(vim.lsp.get_active_clients()) do
-			names = names .. client.name
-		end
-
-		local opts = {buffer = ev.buf}
-		vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-		vim.keymap.set("n", "<leader>K", function() vim.lsp.buf.hover() end, opts)
-		vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-		vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-		--vim.keymap.set("n", "", function() vim.lsp.buf.signature_help() end, opts)
-		vim.keymap.set("n", "<leader>e", function() vim.diagnostic.open_float() end, opts)
-		vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-		vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-		vim.notify("Finished setting up lsps: " ..  names)
-	end
 })
 
 local cmp = require('cmp')
@@ -105,5 +88,3 @@ cmp.setup({
 		}
 	)
 })
-
-lsp.setup()

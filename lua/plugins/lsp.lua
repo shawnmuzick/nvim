@@ -17,6 +17,7 @@ return {
 		build = "make install_jsregexp"
 	},
 	'saadparwaiz1/cmp_luasnip',
+	--'jmederosalvarado/roslyn.nvim',
 	config = function()
 	end
 }
