@@ -1,7 +1,7 @@
 return{
 	--Git
+	--'tpope/vim-fugitive',
 	'lewis6991/gitsigns.nvim',
-	'tpope/vim-fugitive',
 	config = function ()
 		require('gitsigns').setup {
 			signs = {
@@ -19,13 +19,15 @@ return{
 			watch_gitdir = {
 				follow_files = true
 			},
+			auto_attach = true,
 			attach_to_untracked = true,
 			current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
 			current_line_blame_opts = {
 				virt_text = true,
 				virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
-				delay = 100,
+				delay = 10,
 				ignore_whitespace = false,
+				virt_text_priority = 100,
 			},
 			current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
 			sign_priority = 6,
