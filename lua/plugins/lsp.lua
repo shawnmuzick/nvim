@@ -31,7 +31,7 @@ return {
 					'biome',
 					'lua_ls',
 					'clangd',
-					'csharp_ls',
+					--'csharp_ls',
 					'marksman',
 					'html'
 				},
@@ -51,6 +51,9 @@ return {
 			require("lspconfig").csharp_ls.setup({
 				filetypes = {'cs','cshtml'},
 			})
+			require("lspconfig").html.setup({
+				filetypes = {'html','ejs'},
+			})
 			vim.api.nvim_create_autocmd('LspAttach', {
 				desc = 'LSP actions',
 				callback = function(event)
@@ -58,7 +61,7 @@ return {
 					local opts = {buffer = event.buf}
 					local names = ""
 					for _, cl in ipairs(vim.lsp.get_clients()) do
-						names = names .. cl.name
+						names = names .. cl.name .. " "
 					end
 					vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 					vim.keymap.set("n", "<leader>K", function() vim.lsp.buf.hover() end, opts)
