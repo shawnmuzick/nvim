@@ -1,4 +1,7 @@
 return {
+	{'kyazdani42/nvim-web-devicons'},
+	{'akinsho/bufferline.nvim'}, --vscode like tabs
+	{'hiphish/rainbow-delimiters.nvim'},
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
@@ -17,13 +20,24 @@ return {
 				colors.comment = "#22ffb2"
 			end
 		},
+		config = function()
+			vim.cmd 'colorscheme tokyonight-night'
+		end
 	},
-	'kyazdani42/nvim-web-devicons',
-	'nvim-lualine/lualine.nvim',--status line
-	'akinsho/bufferline.nvim', --vscode like tabs
-	'hiphish/rainbow-delimiters.nvim',
-	--this breaks in the gitsigns file
-	--no obvious or good reason, so moved it here
-	--magically works fine
-	'tpope/vim-fugitive',
+	{
+		'nvim-lualine/lualine.nvim',
+		config = function()
+			--fake custom theme to set transparent statusline background
+			local theme = require("lualine.themes.tokyonight")
+			theme.normal.c.bg = nil
+			require('lualine').setup({
+				options = {
+					theme = theme,
+					section_separators = { left = '', right = '' },
+					component_separators = { left = '', right = '' }
+				},
+				extensions = {'quickfix', 'mason','lazy','fugitive'}
+			})
+		end
+	}
 }

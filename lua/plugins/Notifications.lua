@@ -1,7 +1,7 @@
 return {
 	'rcarriga/nvim-notify',
 	config = function ()
-		return require('notify').setup(
+		require('notify').setup(
 			{
 				background_colour = "NotifyBackground",
 				fps = 30,

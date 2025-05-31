@@ -2,7 +2,7 @@ return {
 	'kyazdani42/nvim-tree.lua',
 	config = function ()
 		vim.keymap.set("n","<leader>re", ":NvimTreeToggle<CR>", {noremap = true})
-		return require("nvim-tree").setup({
+		require("nvim-tree").setup({
 			diagnostics = {
 				enable = true,
 				show_on_dirs = false,
@@ -16,7 +16,7 @@ return {
 			},
 			git = {
 				enable = true,
-				ignore = true,
+				ignore = false,
 				show_on_dirs = true,
 				timeout = 400,
 			},
