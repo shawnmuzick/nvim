@@ -55,3 +55,4 @@ vim.keymap.set("n","<leader>Q",":qa!<CR>")
 
 --remap format
 vim.keymap.set("n","<leader>F","gg=G``")
+vim.keymap.set("n","<leader>Fd",":lua vim.lsp.buf.format()<CR>")
