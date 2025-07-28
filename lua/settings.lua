@@ -16,6 +16,7 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.laststatus = 3
 vim.opt.relativenumber = true
+vim.opt.winborder = "rounded"
 vim.g.loaded_matchparen = 1
 vim.g.ycm_cache_monifunc = 0
 vim.g.coc_start_at_startup = false
