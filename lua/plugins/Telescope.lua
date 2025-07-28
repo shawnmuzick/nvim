@@ -1,4 +1,5 @@
 return {
+	-- see: https://github.com/nvim-telescope/telescope.nvim?tab=readme-ov-file#pickers
 	'nvim-telescope/telescope.nvim',
 	dependencies = { 'nvim-lua/plenary.nvim' },
 	config = function()
@@ -10,6 +11,8 @@ return {
 		vim.keymap.set("n","<leader>fh","<cmd>lua require('telescope.builtin').help_tags()<cr>")
 		vim.keymap.set("n","<leader>fd","<cmd>lua require('telescope.builtin').lsp_definitions()<cr>")
 		vim.keymap.set("n","<leader>fe","<cmd>lua require('telescope.builtin').diagnostics()<cr>")
+		vim.keymap.set("n","<leader>fmp","<cmd>lua require('telescope.builtin').man_pages()<cr>")
 		vim.keymap.set("n","<leader>fn","<cmd>lua require('telescope').extensions.notify.notify()<cr>")
+		local t = require('telescope')
 	end
 }
