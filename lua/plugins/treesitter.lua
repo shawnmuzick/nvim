@@ -7,6 +7,9 @@ return {
 			highlight = {
 				enable = true,
 			},
+			folds = {
+				enable = true,
+			},
 			indent = {
 				enable = true,
 			}

@@ -1,6 +1,5 @@
 return {
 	{'nvim-tree/nvim-web-devicons'},
---	{'akinsho/bufferline.nvim'}, --vscode like tabs
 	{'hiphish/rainbow-delimiters.nvim'},
 	{
 		"folke/tokyonight.nvim",

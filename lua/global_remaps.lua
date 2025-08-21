@@ -1,15 +1,15 @@
 --Motions
-vim.keymap.set("i", "kj", "<Esc>") --remap esc
-vim.keymap.set("n", "<leader>n", "nzz")--center line on search hop
-vim.keymap.set("n", "<leader>N", "Nzz")--center line on search hop
+vim.keymap.set("i", "kj", "<Esc>")      --remap esc
+vim.keymap.set("n", "<leader>n", "nzz") --center line on search hop
+vim.keymap.set("n", "<leader>N", "Nzz") --center line on search hop
 
 -- jumps re-center
-vim.keymap.set("n","<C-d>", "<C-d>zz")
-vim.keymap.set("n","<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 --terminal escape
-local opts = { noremap=true, silent=true }
-vim.api.nvim_set_keymap('t', '<space>w','<C-\\><C-n><C-w>',opts);
+local opts = { noremap = true, silent = true }
+vim.api.nvim_set_keymap('t', '<space>w', '<C-\\><C-n><C-w>', opts);
 
 -- Bracket Matching
 vim.keymap.set("i", "{<CR>", "{<CR>}<ESC>O")
@@ -39,20 +39,24 @@ vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 
 -- go to file under cursor
-vim.keymap.set("n","gf", "<C-W>gf")
+vim.keymap.set("n", "gf", "<C-W>gf")
 
 -- capital Y now just goes from cursor to end of line, like capital D and C
-vim.keymap.set("n","Y","y$")
+vim.keymap.set("n", "Y", "y$")
 
 -- easier window management
-vim.keymap.set("n","<leader>w", "<C-w>")
+vim.keymap.set("n", "<leader>w", "<C-w>")
 
 --Fugitive
-vim.keymap.set("n","<leader>G", ":Git<CR>")
+vim.keymap.set("n", "<leader>G", ":Git<CR>")
 
 --remap exit
-vim.keymap.set("n","<leader>Q",":qa!<CR>")
+vim.keymap.set("n", "<leader>Q", ":qa!<CR>")
 
---remap format
-vim.keymap.set("n","<leader>F","gg=G``")
-vim.keymap.set("n","<leader>Fd",":lua vim.lsp.buf.format()<CR>")
+--vim.o.foldmethod="expr"
+--vim.o.foldcolumn="2"
+--vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+--vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
+vim.opt.foldlevel = 99

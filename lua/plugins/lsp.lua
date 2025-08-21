@@ -64,13 +64,21 @@ return {
 						names = names .. cl.name .. " "
 					end
 					vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+					vim.keymap.set("n", "<leader>Fd", function() vim.lsp.buf.format()end,opts)
 					vim.keymap.set("n", "<leader>K", function() vim.lsp.buf.hover() end, opts)
 					vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-					vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+					--view object references
+					vim.keymap.set("n", "<leader>vor", function() vim.lsp.buf.references() end, opts)
+					--view object implementations
+					vim.keymap.set("n", "<leader>voi", function() vim.lsp.buf.implementation() end, opts)
+					--rename symbol
+					vim.keymap.set("n", "<leader>rs", function() vim.lsp.buf.rename() end, opts)
 					--vim.keymap.set("n", "", function() vim.lsp.buf.signature_help() end, opts)
 					vim.keymap.set("n", "<leader>e", function() vim.diagnostic.open_float() end, opts)
 					vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
 					vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+					--vim.keymap.set("v", "<leader>fc", function() vim.lsp.foldexpr() end, opts)
+
 					vim.notify("Finished setting up lsps: " ..  names)
 				end,
 			})
@@ -102,6 +110,32 @@ return {
 					}
 				)
 			})
+			-- Set up a C formatter
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				pattern = { "*.c", "*.h" },
+				callback = function()
+					local clang_format = vim.fn.expand("~/.local/share/nvim/mason/bin/clang-format")
+					local buf_contents = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+					local joined = table.concat(buf_contents, "\n")
+					local formatted = vim.fn.system(clang_format, joined)
+
+					if vim.v.shell_error == 0 then
+						local lines = vim.split(formatted, "\n", { plain = true })
+						vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
+					else
+						print("clang-format error: " .. formatted)
+					end
+				end
+			})
+
+			-- Create a manual command for it as well
+			vim.api.nvim_create_user_command("ClangFormat", function()
+				local filepath = vim.fn.expand("%:p")
+				local cmd = string.format("~/.local/share/nvim/mason/bin/clang-format -i %s", filepath)
+				vim.fn.system(cmd)
+				vim.cmd("edit")
+			end, {})
+
 		end
 	}
 	--'jmederosalvarado/roslyn.nvim',
